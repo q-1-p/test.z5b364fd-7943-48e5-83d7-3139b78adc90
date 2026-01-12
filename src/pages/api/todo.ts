@@ -12,7 +12,7 @@ export default function handler(_req: NextApiRequest, res: NextApiResponse) {
 			res.status(200).json({ message: "todoを更新しました" });
 			break;
 		case "DELETE":
-			res.status(204).json({ message: "todoを削除しました" });
+			res.status(204).json({});
 			break;
 		default:
 			res.status(405).json({ message: "エラー" });

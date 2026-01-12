@@ -239,11 +239,14 @@ export default function Home() {
 
 	const handleDeleteTodo = async (id: string, e: React.MouseEvent) => {
 		e.stopPropagation();
-		const { message } = await fetch(`/api/todo`, {
+		const response = await fetch(`/api/todo`, {
 			method: "DELETE",
-		}).then((res) => res.json());
+		});
 		setTodos(todos.filter((todo) => todo.id !== id));
-		alert(message);
+
+		if (response.ok) {
+			alert("todoを削除しました");
+		}
 	};
 
 	return (
